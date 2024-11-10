@@ -1,0 +1,23 @@
+{
+  "api_app_base" : {
+    "api_url":"127.0.0.1:3000",
+    "secret_token":"88d3b9ced95055937c25c6526c08efca8eca2574ab80a815ae293fac96b2955a",
+    "refresh_secret_token":"78f9cf465bbbf8a6c92f5512ad0e1090c1b63d848f65f0afaf1c35bfbd018817",
+    "static_token": "a7f8678dc5fdfa434ea91a6677782b5013aaceb90d2deaa80584d4f6758aa7e0",
+    "token_confidentiality_minute": 1,
+    "refresh_token_confidentiality_minute": 100
+  },
+  "database": {
+    "mongodb": {
+      "host": "127.0.0.1",
+      "database": "mlm_app_db",
+      "username": "",
+      "password": "",
+      "port": 27017
+    }
+  },
+  "firebase_db": {
+    "database_url": "url",
+    "database_name": "db_name"
+  }
+}
