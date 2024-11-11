@@ -581,15 +581,23 @@ func (r GatewayApiBaseApp) GetAllChildMember(ctx context.Context, id string, max
 		return objs, err
 	}
 
-	if objs[0].Level == nil || *objs[0].Level <= int32(maxLevel) {
+	fmt.Println("TAG MAXLEVEL ", maxLevel, " <= ", *objs[0].Level)
+	if objs[0].Level == nil || *objs[0].Level > int32(maxLevel) {
 		return objs, err
 	}
 
-	for _, obj := range objs {
-		child, _ := r.GetAllChildMember(ctx, obj.ID, int(*obj.Level))
-		obj.ChildMember = &child
+	for i, obj := range objs {
+		fmt.Println("TAG MAXCHILDREN ", maxLevel, " <= ", obj.ID)
+		child, _ := r.GetAllChildMember(ctx, obj.ID, maxLevel)
+		objs[i].ChildMember = &child
+		fmt.Println("TAG obj.children ", child, " ==> ", obj.ChildMember)
 	}
 
+	for _, obj := range objs {
+		fmt.Println("TAG nuxt.children ", obj.Username, " ==> ", obj.ChildMember)
+	}
+
+	fmt.Println("TAG RESPONSE ", objs)
 	return objs, err
 }
 
