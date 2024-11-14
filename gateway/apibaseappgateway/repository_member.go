@@ -250,8 +250,9 @@ func (r GatewayApiBaseApp) FindOneMemberDataById(ctx context.Context, id string,
 	fmt.Println("TAG newBonus ", newBonus, " == ", resultMemberData)
 	if bonusErr == nil && newBonus != float64(resultMemberData.Bonus) {
 		newResultMemberData, err := r.UpdateMemberManualData(ctx, entity.EditMemberData{
-			ID:    id,
-			Bonus: float32(newBonus),
+			ID:       id,
+			Bonus:    float32(newBonus),
+			ParentId: resultMemberData.ParentId,
 		})
 		if err == nil {
 			resultMemberData = *newResultMemberData
@@ -512,8 +513,9 @@ func (r GatewayApiBaseApp) UpdateBonusMemberData(ctx context.Context, memberID s
 	}
 
 	_, err = r.UpdateMemberManualData(ctx, entity.EditMemberData{
-		ID:    *parentID,
-		Bonus: memberParent.Bonus + float32(changeValue),
+		ID:       *parentID,
+		Bonus:    memberParent.Bonus + float32(changeValue),
+		ParentId: memberParent.ParentId,
 	})
 
 	if err != nil {
