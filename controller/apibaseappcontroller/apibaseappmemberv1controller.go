@@ -160,7 +160,6 @@ func ApiBaseAppMemberDeleteOne(r *Controller) gin.HandlerFunc {
 			return
 		}
 
-		fmt.Println("FIND MEMBER ID ", req)
 		res, err := inputPort.Execute(ctx, req)
 
 		if err != nil {

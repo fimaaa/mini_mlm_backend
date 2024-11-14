@@ -50,6 +50,7 @@ func (r *Controller) RegisterGroupV1Member(groupParent *gin.RouterGroup) {
 	group.POST("", ApiBaseAppMemberCreate(r))
 	group.GET("", r.handlerAuthMember(), ApiBaseAppMemberFindAll(r))
 	group.PUT("", r.handlerAuthMember(), ApiBaseAppMemberUpdateOne(r))
+	group.DELETE("/:id", r.handlerAuthMember(), ApiBaseAppMemberDeleteOne(r))
 	group.GET("/:id", r.handlerAuthMember(), ApiBaseAppMemberFindOne(r))
 	group.GET("/child/:id", r.handlerAuthMember(), ApiBaseAppMemberFindAllChildren(r))
 }
