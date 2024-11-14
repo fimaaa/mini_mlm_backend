@@ -34,17 +34,19 @@ Authorization: Bearer {{REFRESH_TOKEN}}
 
 ### CREATE MEMBER
 @MEMBER_URL = /api/v1/member
-POST {{BASE_URL}}{{MEMBER_URL}}/create
+POST http://localhost:3000/api/v1/member
 Content-Type: application/json
 
 {
-  "username": "fimaaa",
+  "username": "fimaaa2",
   "fullname": "F",
   "password":"123456789",
   "member_type":"client",
-  "phone_number":"08123456789",
-  "email": "test@test.com",
-  "photo_member":""
+  "phone_number":"081234567892",
+  "email": "test2@test.com",
+  "photo_member":"",
+  "parent_id":"Member-241114150352",
+  "level":1
 }
 
 ### GET ALL MEMBER

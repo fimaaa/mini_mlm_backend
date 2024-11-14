@@ -47,7 +47,7 @@ func (r *Controller) RegisterGroupV1Auth(groupParent *gin.RouterGroup) {
 func (r *Controller) RegisterGroupV1Member(groupParent *gin.RouterGroup) {
 	group := groupParent.Group("/member")
 
-	group.POST("/create", ApiBaseAppMemberCreate(r))
+	group.POST("", ApiBaseAppMemberCreate(r))
 	group.GET("", r.handlerAuthMember(), ApiBaseAppMemberFindAll(r))
 	group.PUT("", r.handlerAuthMember(), ApiBaseAppMemberUpdateOne(r))
 	group.GET("/:id", r.handlerAuthMember(), ApiBaseAppMemberFindOne(r))
